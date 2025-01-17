@@ -2,34 +2,34 @@ name: Python Code Quality
 on: [push]
 jobs:
   lock_file:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: uv lock --locked
   linting:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: uvx ruff check .
   formatting:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: uvx ruff format --check .
   type_consistency:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: uv run pyright .
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [lock_file]
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   build:
-    runs-on: [ubuntu-latest]
+    runs-on: [ubuntu-22.04]
     needs: [linting, formatting, type_consistency, tests]
     steps:
       - uses: actions/checkout@v4
