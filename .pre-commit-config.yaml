@@ -16,15 +16,6 @@ repos:
     hooks:
       - id: pyright
 
-  # - repo: local
-  #   hooks:
-  #     - id: pytest
-  #       name: pytest
-  #       entry: pytest tests
-  #       language: python
-  #       pass_filenames: false
-  #       always_run: true
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
