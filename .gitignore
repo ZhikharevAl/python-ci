@@ -1,8 +1,16 @@
-__pycache__
-.pytest_cache
-.ruff_cache
-.venv
+# Caches and temporary files
+__pycache__/
+.pytest_cache/
+.ruff_cache/
 .coverage
 coverage.xml
+
+# Virtual environment
+.venv/
 .python-version
-dist
+
+# Build artifacts
+dist/
+
+# Test reports
+allure-results/
