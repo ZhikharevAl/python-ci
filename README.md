@@ -13,6 +13,7 @@ A modern Python project template with comprehensive CI/CD setup using GitHub Act
   - Type checking with [Pyright](https://github.com/microsoft/pyright)
   - Test coverage reporting with [pytest-cov](https://github.com/pytest-dev/pytest-cov)
   - Code coverage tracking with [Codecov](https://codecov.io)
+- **Allure Reports**: Detailed test reports with [Allure Framework](https://docs.qameta.io/allure/)
 - **Pre-commit hooks** for consistent code quality
 - **Automated CI/CD** with GitHub Actions
 
@@ -70,16 +71,23 @@ This project uses several tools to ensure code quality:
   - Coverage reporting enabled
   - Test files should be placed in the `tests` directory
 
+- **Allure Framework**: Generates detailed test reports
+  - Reports are automatically published to GitHub Pages
+  - Allure results are stored in the `allure-results` directory
+
 ### GitHub Actions Workflow
 
 The CI pipeline includes the following steps:
 
-1. Lock file verification
-2. Code linting
-3. Code formatting check
-4. Type consistency check
-5. Unit tests with coverage reporting
-6. Project build
+1. **Lock file verification**
+2. **Code linting**
+3. **Code formatting check**
+4. **Type consistency check**
+5. **Unit tests with coverage reporting**
+6. **Allure Report generation**:
+   - Test results are saved as artifacts
+   - Allure reports are generated and published to GitHub Pages
+7. **Project build**
 
 ### Pre-commit Hooks
 
@@ -91,3 +99,45 @@ The following pre-commit hooks are configured:
 - `trailing-whitespace`: Removes trailing whitespace
 - `end-of-file-fixer`: Ensures files end with a newline
 - `check-yaml`: Validates YAML files
+
+## Allure Reports
+
+This project uses [Allure Framework](https://docs.qameta.io/allure/) to generate detailed test reports. Reports are automatically published to GitHub Pages after each CI run.
+
+### Viewing Reports
+
+1. After a CI run, navigate to the **Actions** tab in your GitHub repository.
+2. Find the latest workflow run and click on it.
+3. Scroll down to the **Artifacts** section and download the `allure-results` artifact (if needed).
+4. The Allure report is automatically published to GitHub Pages. You can view it at:
+
+```
+https://zhikhareval.github.io/python-ci/
+```
+
+### Local Report Generation
+
+To generate Allure reports locally:
+
+1. Run tests with Allure results:
+
+```bash
+uv run pytest --alluredir=allure-results
+```
+
+2. Generate and serve the report:
+
+```bash
+allure serve allure-results
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes and push to the branch.
+4. Open a pull request with a detailed description of your changes.
