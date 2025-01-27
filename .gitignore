@@ -14,3 +14,4 @@ dist/
 
 # Test reports
 allure-results/
+pytest.log
