@@ -1,0 +1,2 @@
+2025-01-27 18:26:36 [INFO] Starting test: test_generate_list
+2025-01-27 18:26:36 [INFO] Finished test: test_generate_list
