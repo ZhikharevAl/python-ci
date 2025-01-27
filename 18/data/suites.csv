@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Jan 27 19:10:50 GMT 2025","Mon Jan 27 19:10:50 GMT 2025","1","tests.python_ci","test_init","TestGenerateList","","","test_generate_list","Test that `generate_list` returns the expected value."
