@@ -30,6 +30,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install Pyright
+        run: npm install -g pyright
       - run: uv run pyright .
 
   tests:
@@ -51,7 +57,7 @@ jobs:
           retention-days: 20
 
   build:
-    runs-on: [ubuntu-22.04]
+    runs-on: ubuntu-22.04
     needs: [linting, formatting, type_consistency, tests]
     steps:
       - uses: actions/checkout@v4
@@ -99,3 +105,4 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
