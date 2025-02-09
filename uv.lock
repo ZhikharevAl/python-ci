@@ -155,7 +155,7 @@ name = "python-ci"
 version = "0.1.0"
 source = { editable = "." }
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "allure-pytest" },
     { name = "pyright" },
@@ -164,11 +164,13 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "allure-pytest", marker = "extra == 'dev'", specifier = ">=2.13.5" },
-    { name = "pyright", marker = "extra == 'dev'", specifier = ">=1.1.392.post0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.4" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0.0" },
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "allure-pytest", specifier = ">=2.13.5" },
+    { name = "pyright", specifier = ">=1.1.392.post0" },
+    { name = "pytest", specifier = ">=8.3.4" },
+    { name = "pytest-cov", specifier = ">=6.0.0" },
 ]
 
 [[package]]
