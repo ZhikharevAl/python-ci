@@ -1,0 +1,2 @@
+INFO     test_generate_list:conftest.py:24 Starting test: test_generate_list
+INFO     test_generate_list:conftest.py:29 Finished test: test_generate_list
